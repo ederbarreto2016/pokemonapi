@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct PokemonResponse: Decodable {
+struct PokemonListResponse: Decodable {
+    let pokemon: [Pokemon]
+}
+
+struct Pokemon: Decodable {
     let name: String?
     let img: String?
     let height: String?

@@ -31,8 +31,8 @@ class PokemonListViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configureView(with pokemon: PokemonResponse) {
-        nameLabel.text = pokemon.name ?? "Unknown"
+    func configureView(with pokemon: Pokemon) {
+        nameLabel.text = pokemon.name
     }
     
     private func addSubviews() {

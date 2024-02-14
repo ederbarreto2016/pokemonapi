@@ -24,7 +24,7 @@ class PokemonListInteractor: PokemonListInteractorProtocol {
         worker.getPokemonList { result in
             switch result {
             case .success(let pokemons):
-                self.presenter.presentPokemons([pokemons])
+                self.presenter.presentPokemons(pokemons)
             case .failure(let error):
                 self.presenter.presentError(error)
             }

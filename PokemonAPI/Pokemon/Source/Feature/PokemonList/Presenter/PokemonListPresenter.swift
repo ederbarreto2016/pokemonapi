@@ -8,14 +8,14 @@
 import Foundation
 
 protocol PokemonListPresenterProtocol {
-    func presentPokemons(_ pokemons: [PokemonResponse])
+    func presentPokemons(_ pokemons: PokemonListResponse)
     func presentError(_ error: Error)
 }
 
 class PokemonListPresenter: PokemonListPresenterProtocol {
     weak var viewController: PokemonListViewProtocol?
     
-    func presentPokemons(_ pokemons: [PokemonResponse]) {
+    func presentPokemons(_ pokemons: PokemonListResponse) {
         viewController?.displayPokemons(pokemons)
     }
     

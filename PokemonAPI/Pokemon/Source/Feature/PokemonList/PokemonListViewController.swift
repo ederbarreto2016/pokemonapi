@@ -8,14 +8,14 @@
 import UIKit
 
 protocol PokemonListViewProtocol: AnyObject {
-    func displayPokemons(_ pokemons: [PokemonResponse])
+    func displayPokemons(_ pokemons: PokemonListResponse)
     func displayError(_ message: String)
 }
 
 class PokemonListViewController: UIViewController {
     
     var interactor: PokemonListInteractorProtocol?
-    var pokemons: [PokemonResponse] = []
+    var pokemonList = PokemonListResponse(pokemon: [])
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -59,14 +59,14 @@ class PokemonListViewController: UIViewController {
 extension PokemonListViewController: UICollectionViewDataSource,
                                      UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return pokemons.count
+        return pokemonList.pokemon.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PokemonCell", for: indexPath) as? PokemonListViewCell else {
             return UICollectionViewCell()
         }
-        let pokemon = pokemons[indexPath.item]
+        let pokemon = pokemonList.pokemon[indexPath.item]
         cell.configureView(with: pokemon)
         return cell
     }
@@ -77,8 +77,8 @@ extension PokemonListViewController: UICollectionViewDataSource,
 }
 
 extension PokemonListViewController: PokemonListViewProtocol {
-    func displayPokemons(_ pokemons: [PokemonResponse]) {
-        self.pokemons = pokemons
+    func displayPokemons(_ pokemons: PokemonListResponse) {
+        self.pokemonList = pokemons
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }
