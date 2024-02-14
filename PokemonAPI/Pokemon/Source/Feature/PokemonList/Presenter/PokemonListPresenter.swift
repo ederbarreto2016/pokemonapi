@@ -7,6 +7,11 @@
 
 import Foundation
 
+protocol PokemonListPresenterProtocol {
+    func presentPokemons(_ pokemons: [PokemonResponse])
+    func presentError(_ error: Error)
+}
+
 class PokemonListPresenter {
     weak var viewController: PokemonListViewProtocol?
     

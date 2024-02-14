@@ -13,9 +13,9 @@ protocol PokemonListInteractorProtocol {
 
 class PokemonListInteractor: PokemonListInteractorProtocol {
     private let worker: PokemonListWorkerProtocol
-    private let presenter: PokemonListPresenter
+    private let presenter: PokemonListPresenterProtocol
     
-    init(worker: PokemonListWorkerProtocol, presenter: PokemonListPresenter) {
+    init(worker: PokemonListWorkerProtocol, presenter: PokemonListPresenterProtocol) {
         self.worker = worker
         self.presenter = presenter
     }
