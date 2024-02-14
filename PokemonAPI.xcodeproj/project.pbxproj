@@ -17,6 +17,7 @@
 		FC3573612B7D491500E0191F /* PokemonListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3573602B7D491500E0191F /* PokemonListInteractor.swift */; };
 		FC3573632B7D4A3B00E0191F /* PokemonListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3573622B7D4A3B00E0191F /* PokemonListPresenter.swift */; };
 		FC3573662B7D4D3F00E0191F /* PokemonListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3573652B7D4D3F00E0191F /* PokemonListViewCell.swift */; };
+		FC3573692B7D76AE00E0191F /* PokemonListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3573682B7D76AE00E0191F /* PokemonListFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		FC3573602B7D491500E0191F /* PokemonListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListInteractor.swift; sourceTree = "<group>"; };
 		FC3573622B7D4A3B00E0191F /* PokemonListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListPresenter.swift; sourceTree = "<group>"; };
 		FC3573652B7D4D3F00E0191F /* PokemonListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewCell.swift; sourceTree = "<group>"; };
+		FC3573682B7D76AE00E0191F /* PokemonListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 		FC3573582B7D3DBC00E0191F /* PokemonList */ = {
 			isa = PBXGroup;
 			children = (
+				FC3573672B7D769C00E0191F /* Factory */,
 				FC3573562B7D3C4B00E0191F /* Model */,
 				FC35735E2B7D410300E0191F /* Interactor */,
 				FC35735B2B7D3E0700E0191F /* Worker */,
@@ -151,6 +154,14 @@
 				FC3573652B7D4D3F00E0191F /* PokemonListViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		FC3573672B7D769C00E0191F /* Factory */ = {
+			isa = PBXGroup;
+			children = (
+				FC3573682B7D76AE00E0191F /* PokemonListFactory.swift */,
+			);
+			path = Factory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +236,7 @@
 			files = (
 				FC3573662B7D4D3F00E0191F /* PokemonListViewCell.swift in Sources */,
 				FC35733F2B7D3A2800E0191F /* AppDelegate.swift in Sources */,
+				FC3573692B7D76AE00E0191F /* PokemonListFactory.swift in Sources */,
 				FC3573632B7D4A3B00E0191F /* PokemonListPresenter.swift in Sources */,
 				FC3573412B7D3A2800E0191F /* SceneDelegate.swift in Sources */,
 				FC35735D2B7D3EB300E0191F /* PokemonListWorker.swift in Sources */,

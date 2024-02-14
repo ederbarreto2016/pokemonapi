@@ -12,7 +12,7 @@ protocol PokemonListPresenterProtocol {
     func presentError(_ error: Error)
 }
 
-class PokemonListPresenter {
+class PokemonListPresenter: PokemonListPresenterProtocol {
     weak var viewController: PokemonListViewProtocol?
     
     func presentPokemons(_ pokemons: [PokemonResponse]) {
