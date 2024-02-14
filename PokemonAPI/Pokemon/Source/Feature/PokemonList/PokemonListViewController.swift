@@ -33,7 +33,7 @@ class PokemonListViewController: UIViewController {
         
         return collectionView
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
@@ -79,7 +79,9 @@ extension PokemonListViewController: UICollectionViewDataSource,
 extension PokemonListViewController: PokemonListViewProtocol {
     func displayPokemons(_ pokemons: [PokemonResponse]) {
         self.pokemons = pokemons
-        collectionView.reloadData()
+        DispatchQueue.main.async {
+            self.collectionView.reloadData()
+        }
     }
     
     func displayError(_ message: String) {
