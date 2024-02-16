@@ -38,6 +38,8 @@ class PokemonListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Pokemon List"
+        
         delegateListView = self
         setupCollectionView()
         fetchData()

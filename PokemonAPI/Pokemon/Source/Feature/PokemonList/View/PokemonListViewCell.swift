@@ -20,6 +20,7 @@ class PokemonListViewCell: UICollectionViewCell {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 22)
         label.textColor = .black
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -45,8 +46,9 @@ class PokemonListViewCell: UICollectionViewCell {
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
-            nameLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            nameLabel.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
+            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
+            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
         ])
     }
 }

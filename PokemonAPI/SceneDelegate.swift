@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let safeWindow = UIWindow(windowScene: windowScene)
         let navigation = UINavigationController(rootViewController: PokemonListFactory.create())
+        navigation.navigationBar.backgroundColor = .white
         safeWindow.frame = UIScreen.main.bounds
         safeWindow.rootViewController = navigation
         safeWindow.makeKeyAndVisible()

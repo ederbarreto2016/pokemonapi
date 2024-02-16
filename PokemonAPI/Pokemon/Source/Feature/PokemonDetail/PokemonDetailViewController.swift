@@ -19,8 +19,8 @@ class PokemonDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .blue
         setupViews()
-        view.backgroundColor = .white
         interactor?.getPokemonDetail()
     }
     
@@ -30,7 +30,7 @@ class PokemonDetailViewController: UIViewController {
         pokemonDetailView.translatesAutoresizingMaskIntoConstraints = false
                 
         NSLayoutConstraint.activate([
-            pokemonDetailView.topAnchor.constraint(equalTo: view.topAnchor),
+            pokemonDetailView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 24),
             pokemonDetailView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             pokemonDetailView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             pokemonDetailView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
