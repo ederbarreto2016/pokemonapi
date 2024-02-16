@@ -15,7 +15,9 @@ protocol PokemonListViewProtocol: AnyObject {
 class PokemonListViewController: UIViewController {
     
     var interactor: PokemonListInteractorProtocol?
+    var router: PokemonListRouterLogic?
     var pokemonList = PokemonListResponse(pokemon: [])
+    weak var delegateListView: PokemonListViewCellProtocol?
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -26,7 +28,7 @@ class PokemonListViewController: UIViewController {
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .black
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(PokemonListViewCell.self, forCellWithReuseIdentifier: "PokemonCell")
@@ -36,6 +38,7 @@ class PokemonListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        delegateListView = self
         setupCollectionView()
         fetchData()
     }
@@ -57,7 +60,8 @@ class PokemonListViewController: UIViewController {
 }
 
 extension PokemonListViewController: UICollectionViewDataSource,
-                                     UICollectionViewDelegateFlowLayout {
+                                     UICollectionViewDelegateFlowLayout,
+                                     UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return pokemonList.pokemon.count
     }
@@ -74,6 +78,10 @@ extension PokemonListViewController: UICollectionViewDataSource,
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.bounds.width - 20, height: 100)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        delegateListView?.pokemonSelected(at: indexPath.item)
+    }
 }
 
 extension PokemonListViewController: PokemonListViewProtocol {
@@ -86,5 +94,12 @@ extension PokemonListViewController: PokemonListViewProtocol {
     
     func displayError(_ message: String) {
         
+    }
+}
+
+extension PokemonListViewController: PokemonListViewCellProtocol {
+    func pokemonSelected(at index: Int) {
+        interactor?.pokemonSelected(at: index)
+        router?.showPokemonDetail()
     }
 }

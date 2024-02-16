@@ -19,8 +19,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let safeWindow = UIWindow(windowScene: windowScene)
+        let navigation = UINavigationController(rootViewController: PokemonListFactory.create())
         safeWindow.frame = UIScreen.main.bounds
-        safeWindow.rootViewController = PokemonListFactory.create()
+        safeWindow.rootViewController = navigation
         safeWindow.makeKeyAndVisible()
         
         window = safeWindow
